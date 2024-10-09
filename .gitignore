@@ -22,3 +22,6 @@ build/
 
 # Others
 coverage/
+
+package.json
+package-lock.json
