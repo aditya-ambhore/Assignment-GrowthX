@@ -1,0 +1,62 @@
+### User Registration
+POST http://localhost:5000/api/users/register
+Content-Type: application/json
+
+{
+  "username": "aditya",
+  "password": "aditya"
+}
+
+### User Login
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+  "username": "aditya",
+  "password": "aditya"
+}
+
+### User Upload Assignment
+POST http://localhost:5000/api/users/upload
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzA1NjQ3MjI3MTg2YjYxYjA2MDg1MjEiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyODQ2NTE3OCwiZXhwIjoxNzI4NDY4Nzc4fQ.CfproHjMSW7xbHTu4xtGRQ_dM0thvTiE3llx9rBNTzc
+
+{
+  "userId": "aditya",
+  "task": "Hello Googler",
+  "admin": "aditya"
+}
+
+### Fetch Admins
+GET http://localhost:5000/api/admins
+Authorization: Bearer <admin-token>
+
+### Admin Registration
+POST http://localhost:5000/api/admins/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+### Admin Login
+POST http://localhost:5000/api/admins/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+### View Assignments for Admin
+GET http://localhost:5000/api/admins/assignments
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjcwNjQ2NjU2YjVlNzQyOTVhOGRiYzIxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzI4NDY0NDk3LCJleHAiOjE3Mjg0NjgwOTd9.sx8-qkyhIWO4XveFEAFj5Isddeh4uT8LLJpEHVYW8Pk
+
+### Accept Assignment
+POST http://localhost:5000/api/admins/assignments/:id/accept
+Authorization: Bearer <admin-token>
+
+### Reject Assignment
+POST http://localhost:5000/api/admins/assignments/:id/reject
+Authorization: Bearer <admin-token>
