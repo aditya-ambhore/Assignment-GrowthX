@@ -24,9 +24,7 @@ app.use("/admins", adminRoutes);
 
 // Connect to MongoDB
 mongoose
-  .connect(
-    "mongodb+srv://adityaambhore06:googler12345@cluster.vflo3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
