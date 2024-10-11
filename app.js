@@ -1,17 +1,35 @@
-require("dotenv").config();
-
+// Import required module
 const express = require("express");
-const connectDB = require("./config");
+const mongoose = require("mongoose");
+const passport = require("./middleware/passport.js");
+const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes.js");
 const adminRoutes = require("./routes/adminRoutes.js");
+
+// Load environment variables
+dotenv.config();
+
+// Create Express app
 const app = express();
-const bodyParser = require("body-parser");
 
-connectDB();
+// Middleware to parse JSON requests
 app.use(express.json());
-app.use("/api/users", userRoutes);
-app.use("/api/admins", adminRoutes);
-app.use(bodyParser.json());
 
+// Initialize Passport for authentication
+app.use(passport.initialize());
+
+// Define  routes
+app.use("/users", userRoutes);
+app.use("/admins", adminRoutes);
+
+// Connect to MongoDB
+mongoose
+  .connect(
+    "mongodb+srv://adityaambhore06:googler12345@cluster.vflo3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
+  )
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.log(err));
+
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

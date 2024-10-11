@@ -1,5 +1,5 @@
 ### User Registration
-POST http://localhost:5000/api/users/register
+POST http://localhost:5000/users/register
 Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### User Login
-POST http://localhost:5000/api/users/login
+POST http://localhost:5000/users/login
 Content-Type: application/json
 
 {
@@ -17,31 +17,35 @@ Content-Type: application/json
 }
 
 ### User Upload Assignment
-POST http://localhost:5000/api/users/upload
+POST http://localhost:5000/users/upload
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzA1NjQ3MjI3MTg2YjYxYjA2MDg1MjEiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyODQ2NTE3OCwiZXhwIjoxNzI4NDY4Nzc4fQ.CfproHjMSW7xbHTu4xtGRQ_dM0thvTiE3llx9rBNTzc
+Authorization: Bearer 
 
 {
-  "userId": "aditya",
-  "task": "Hello Googler",
-  "admin": "aditya"
+  "userId": "670946fda64e22ff0b2ac1ed",
+  "task": "Finally Complete the Assignment",
+  "adminId": "6709472ba64e22ff0b2ac1f1"
 }
 
-### Fetch Admins
-GET http://localhost:5000/api/admins
-Authorization: Bearer <admin-token>
+
+### Get all admins
+GET http://localhost:5000/users/admins
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzA5MmQ2YTY5YmI1ZjdmNGQwZjJmY2UiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyODY1ODE2OCwiZXhwIjoxNzI4NjYxNzY4fQ.HLtumCxrZq07f8Rm2yRDoq0f9_0HVWtpg5sgln7KdCg
+
+
 
 ### Admin Registration
-POST http://localhost:5000/api/admins/register
+POST http://localhost:5000/admins/register
 Content-Type: application/json
 
 {
-  "username": "admin",
-  "password": "admin"
+  "username": "sigma",
+  "password": "sigma"
 }
 
 ### Admin Login
-POST http://localhost:5000/api/admins/login
+POST http://localhost:5000/admins/login
 Content-Type: application/json
 
 {
@@ -49,14 +53,16 @@ Content-Type: application/json
   "password": "admin"
 }
 
+
+
 ### View Assignments for Admin
-GET http://localhost:5000/api/admins/assignments
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjcwNjQ2NjU2YjVlNzQyOTVhOGRiYzIxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzI4NDY0NDk3LCJleHAiOjE3Mjg0NjgwOTd9.sx8-qkyhIWO4XveFEAFj5Isddeh4uT8LLJpEHVYW8Pk
+GET http://localhost:5000/admins/assignments
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjcwOTJkNzQ2OWJiNWY3ZjRkMGYyZmQyIiwiaWF0IjoxNzI4NjYxNDQwLCJleHAiOjE3Mjg2NjUwNDB9.vsIa0dVYOA5sYYmnKf7VIrtaG7OO7Fv2O75wfYrt0j0
 
 ### Accept Assignment
-POST http://localhost:5000/api/admins/assignments/:id/accept
-Authorization: Bearer <admin-token>
+POST http://localhost:5000/admins/assignments/67093225d1d1969bee588b35/accept
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjcwOTJkNzQ2OWJiNWY3ZjRkMGYyZmQyIiwiaWF0IjoxNzI4NjU1MjQwLCJleHAiOjE3Mjg2NTg4NDB9.Q_mMmuRWameDRWmTpUcQxjRNTocCcnc99UR-hMT4MKY
 
 ### Reject Assignment
-POST http://localhost:5000/api/admins/assignments/:id/reject
-Authorization: Bearer <admin-token>
+POST http://localhost:5000/admins/assignments/67092fc68051cc4e5b1db0e7/reject
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjcwOTJkNzQ2OWJiNWY3ZjRkMGYyZmQyIiwiaWF0IjoxNzI4NjU1MjQwLCJleHAiOjE3Mjg2NTg4NDB9.Q_mMmuRWameDRWmTpUcQxjRNTocCcnc99UR-hMT4MKY
